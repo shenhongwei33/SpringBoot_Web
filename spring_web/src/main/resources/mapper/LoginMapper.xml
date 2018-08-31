@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.dao.LoginMapper">
+
+<resultMap type="com.example.demo.pojo.User" id="userResultMap">
+	<result column="user_name" property="name"/>
+	<result column="user_username" property="username"/>
+	<result column="user_password" property="password"/>
+	<result column="user_age" property="age"/>
+</resultMap>
+
+<select id="getPasswordByUsername" resultMap="userResultMap" parameterType="java.lang.String">
+	select 
+	user_username,user_password,user_name,user_age
+	FROM 
+	spring_user
+	WHERE user_username=#{userName};
+</select>
+
+<!-- <select id="findOrderAndOrderDetails" resultMap="findOrderAndOrderDetails">
+select 
+orders.*,`customer`.username,
+`customer`.sex,orderdetail.id orderdetail_id,orderdetail.itemsNum items_num,orderdetail.itemsId items_id 
+FROM 
+orders,`customer`,orderdetail 
+WHERE 
+orders.userId=customer.id and orders.id=orderdetail.ordersId;
+</select>
+
+<select id="findCustomerOrderDetail" resultMap="findCustomerOrderDetailList">
+select 
+orders.*,`customer`.username,`customer`.sex,customer.address,
+orderdetail.id orderdetail_id,orderdetail.itemsNum items_num,orderdetail.itemsId items_id,
+items.price,items.detail 
+FROM 
+orders,`customer`,orderdetail,items 
+WHERE 
+orders.userId=customer.id and orders.id=orderdetail.ordersId AND orderdetail.itemsId=items.id;
+</select> -->
+
+
+
+
+</mapper>

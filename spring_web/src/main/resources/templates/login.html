@@ -1,0 +1,42 @@
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"></meta>
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no"></meta>
+<meta name="description" content=""></meta>
+<meta name="author" content=""></meta>
+
+<title>Signin</title>
+
+<!-- Bootstrap core CSS -->
+<link rel="stylesheet" type="text/css"
+	th:href="@{css/bootstrap.min.css}"></link>
+
+<!-- Custom styles for this template -->
+<link th:href="@{css/signin.css}" rel="stylesheet"></link>
+</head>
+
+<body class="text-center">
+	<!-- <div th:if="${param.error}">Invalid username and password.</div>
+	<div th:if="${param.logout}">You have been logged out.</div>-->
+		<form class="form-signin" action="" th:action="@{/user}" method="post">
+		<div th:if="${failure}" class="alert alert-danger" role="alert">
+             <text>用户名或密码错误</text> 
+         </div>
+			
+			<h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+			<label for="inputEmail" class="sr-only">Username</label> <input
+				type="text" name="username" class="form-control"
+				placeholder="username" required="" autofocus=""> </input><label
+				for="inputPassword" class="sr-only">Password</label> <input
+				type="password" name="password" class="form-control"
+				placeholder="Password" required=""></input>
+			<button class="btn btn-lg btn-primary btn-block" type="submit">Sign
+				in</button>
+			<p class="mt-5 mb-3 text-muted">© 2017-2018</p>
+		</form>
+</body>
+<script th:src="@{js/jquery-3.1.1.min.js}"></script>
+<script th:src="@{js/bootstrap.min.js}"></script>
+
+</html>
